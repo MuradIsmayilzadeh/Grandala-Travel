@@ -1,60 +1,33 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Navbar.css';
-import logoImage from '../icons/logo.jpg'; // Import your logo image
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import "./Navbar.css";
+import logoImage from "../icons/logo.jpg";
+import { services, contact } from "../data/services";
 
 function Navbar() {
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
+
   return (
-    <nav className="navbar">
-      <div className="nav-logo">
-        <Link to="/" className="nav-link">
-          <div className="logo-container">
-            <img src={logoImage} alt="Logo" className="nav-logo-image" />
-          </div>
-        </Link>
+    <header className="navbar">
+      <div className="container nav-inner">
+        <Link to="/" onClick={close} className="nav-logo"><img src={logoImage} alt="Grandala Travel" /></Link>
+        <button className="nav-toggle" aria-label="Toggle menu" onClick={() => setOpen((o) => !o)}>
+          <i className={`fa ${open ? "fa-times" : "fa-bars"}`} />
+        </button>
+        <nav className={`nav-items ${open ? "open" : ""}`}>
+          {services.map((s) => (
+            <NavLink key={s.slug} to={`/${s.slug}`} onClick={close} className={({ isActive }) => `nav-link${isActive ? " active" : ""}`}>
+              <i className={`fa ${s.icon}`} /> {s.title}
+            </NavLink>
+          ))}
+          <span className="nav-social">
+            <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i className="fa fa-whatsapp" /></a>
+            <a href={contact.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa fa-instagram" /></a>
+          </span>
+        </nav>
       </div>
-      <div className="nav-items">
-        <Link to="/air-tickets">
-          <button className="nav-button">
-            <i className="fa fa-plane" /> <a>Air Tickets</a>
-          </button>
-        </Link>
-        <Link to="/transfer-service">
-          <button className="nav-button">
-            <i className="fa fa-truck" /><a>Transport service</a>
-          </button>
-        </Link>
-        <Link to="/visa"  className='notformobile'>
-          <button className="nav-button">
-            <i className="fa fa-id-card" /> 
-            <a>
-            Visa
-            </a>
-          </button>
-        </Link>
-        <Link to="/accommodation">
-          <button className="nav-button">
-            <i className="fa fa-home" /> <a>Accommodation</a>
-          </button>
-        </Link>
-        <Link to="/tours" className='notformobile'>
-          <button className="nav-button">
-            <i className="fa fa-bus" /> <a>Tours</a>
-          </button>
-        </Link>
-        <div className='cnu notformobile' >|  Contact Us:</div>
-        <Link to="https://wa.me/9940504442674">
-          <button className="nav-button">
-          <i className="fa fa-whatsapp" />
-          </button>
-        </Link>
-        <Link to="https://www.instagram.com/grandalatravel/">
-          <button className="nav-button">
-            <i className="fa fa-instagram" />
-          </button>
-        </Link>
-      </div>
-      </nav>
+    </header>
   );
 }
 

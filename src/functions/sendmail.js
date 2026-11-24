@@ -1,24 +1,16 @@
-const sendEmail = async ({ message }) => {
+const ENDPOINT = "https://grandalaclientservice.pythonanywhere.com/send_email";
+
+// Sends a request to the Grandala client service. Returns true on success.
+export default async function sendEmail(message) {
   try {
-    const response = await fetch("https://grandalaclientservice.pythonanywhere.com/send_email", {
-      method: "POST", // Specify the HTTP method as POST
-      headers: {
-        "Content-Type": "application/json", // Set the content type to JSON
-      },
-      body: JSON.stringify({ message }), // Convert the data to JSON and send it in the request body
+    const response = await fetch(ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message }),
     });
-
-    if (response.ok) {
-      const data = await response.json();
-      // Handle the response data here
-      console.log(data);
-    } else {
-      throw new Error(`Request failed with status: ${response.status}`);
-    }
+    return response.ok;
   } catch (error) {
-    // Handle any errors that occur during the fetch
     console.error(error);
+    return false;
   }
-};
-
-sendEmail()
+}

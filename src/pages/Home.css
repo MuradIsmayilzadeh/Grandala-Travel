@@ -1,14 +1,22 @@
-.home {
-  background-color: #e0e0e0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+.hero { background-size: cover; background-position: center; color: #fff; padding: 130px 0 140px; }
+.hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.08; margin: 12px 0 18px; letter-spacing: -0.02em; }
+.hero-sub { font-size: 1.2rem; max-width: 560px; opacity: .9; margin: 0; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
 
-.footer{
-  background-color: #0B2546;
-  width: 100%;
-}
+.service-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 22px; }
+.service-tile { display: flex; flex-direction: column; overflow: hidden; background: #fff; border-radius: 20px; border: 1px solid var(--border); color: var(--text); text-decoration: none; transition: transform .25s, box-shadow .25s; }
+.service-tile:hover { transform: translateY(-6px); box-shadow: 0 24px 44px rgba(8, 20, 48, .12); }
+.tile-img { height: 160px; background-size: cover; background-position: center; transition: transform .5s; }
+.service-tile:hover .tile-img { transform: scale(1.05); }
+.tile-body { position: relative; padding: 32px 22px 22px; display: flex; flex-direction: column; flex: 1; background: #fff; }
+.tile-icon { position: absolute; top: -26px; left: 22px; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: var(--accent); color: #fff; font-size: 22px; box-shadow: 0 10px 20px rgba(59, 130, 246, .35); }
+.tile-body h3 { margin: 0 0 6px; font-size: 1.2rem; }
+.tile-body p { margin: 0 0 16px; color: var(--muted); flex: 1; }
+.tile-more { color: var(--accent); font-weight: 700; font-size: 14px; }
 
-/* Add more styling for Xidmetler component if needed */
+.why { background: var(--navy); color: #fff; padding: 80px 0; margin-top: 24px; }
+.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; }
+.why-item .fa { font-size: 30px; color: var(--accent); }
+.why-item h3 { margin: 14px 0 6px; }
+.why-item p { margin: 0; color: rgba(255, 255, 255, .7); }
+@media (max-width: 640px) { .hero { padding: 80px 0 90px; } }
