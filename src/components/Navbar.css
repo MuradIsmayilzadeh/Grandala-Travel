@@ -1,0 +1,84 @@
+/* Navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #0B2546;
+  z-index: 1000;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-logo-image {
+  width: 150px; /* Adjust the logo size */
+  height: auto;
+}
+
+.nav-items {
+  display: flex;
+  gap: 10px;
+  align-items: center; /* Center vertically */
+  text-align: end;
+  color: white;
+}
+
+.cnu {
+  margin-left: 20px;  
+  color: white;
+  margin-bottom: 3px;
+}
+
+.nav-link {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-decoration: none;
+}
+
+.nav-button a{margin-left: 3px;text-decoration: none;}
+.nav-button {
+  display: inline-block;
+  flex-direction: row;
+  padding: 10px 20px;
+  background-color: #0B2546;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #F4A261; /* Cool color on hover */
+  color: #0B2546;
+  border-color: #F4A261;
+}
+
+@media (max-width: 768px) {
+  .notformobile{
+    display: none;
+  }
+  .nav-logo-image {
+    margin-top: 18px;
+    width: 60px; /* Adjust the logo size for small screens */
+  }
+
+  .nav-button {
+    padding: 6px 12px; /* Make the buttons smaller for small screens */
+  }
+  .nav-items {
+    gap: 2px;
+  }
+  .nav-button a{
+    font-size: 8px;
+  }
+
+  .cnu {
+    width: 40px;
+    font-size: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
