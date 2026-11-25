@@ -11,7 +11,7 @@ export default function ServicePage({ slug }) {
 
   return (
     <div className="service-page">
-      <section className="service-hero" style={{ backgroundImage: `linear-gradient(rgba(8,20,48,.65), rgba(8,20,48,.85)), url(${service.image})` }}>
+      <section className="service-hero" style={{ backgroundImage: `linear-gradient(rgba(4,9,21,.6), rgba(4,9,21,.92)), url(${service.image})` }}>
         <div className="container">
           <Link to="/" className="crumb">Home</Link> <span className="crumb-sep">/</span> <span className="crumb current">{service.title}</span>
           <h1><i className={`fa ${service.icon}`} /> {service.title}</h1>

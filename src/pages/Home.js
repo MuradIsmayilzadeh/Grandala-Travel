@@ -13,7 +13,7 @@ const reasons = [
 function Home() {
   return (
     <div className="home">
-      <section className="hero" style={{ backgroundImage: `linear-gradient(100deg, rgba(8,20,48,.85) 30%, rgba(8,20,48,.25)), url(${bg})` }}>
+      <section className="hero" style={{ backgroundImage: `linear-gradient(100deg, rgba(4,9,21,.92) 30%, rgba(4,9,21,.35)), url(${bg})` }}>
         <div className="container">
           <p className="eyebrow">Grandala Travel</p>
           <h1>Travel the world,<br />we handle the rest.</h1>
